@@ -1,16 +1,19 @@
 package com.hcid.edulearn.asksimple;
 
 import android.animation.ObjectAnimator;
+import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
+import android.view.animation.BounceInterpolator;
+import android.widget.Button;
 
 public class LoginActivity extends AppCompatActivity {
 
     View mSplashView;
+    Button mButtonRegister;
     Animation fadeInAnimation;
 
     @Override
@@ -19,9 +22,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mSplashView = findViewById(R.id.layout_splash);
-
         splashAnimation();
-    }
+
+        mButtonRegister = (Button) findViewById(R.id.button_register);
+        mButtonRegister.setPaintFlags(mButtonRegister.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+}
 
     public void splashAnimation() {
         // Load fade in animation from xml
@@ -39,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
                 "weight",
                 animationWrapper.getWeight(),
                 4);
+
+        anim.setInterpolator(new BounceInterpolator());
 
         // Delay animation for fade in to finish
         anim.setStartDelay(1500);

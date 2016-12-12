@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">AskSimple</string>
 
-    <string name="button_login">LOG IN</string>
-    <string name="button_register">CREATE AN ACCOUNT</string>
+    <string name="button_login">Log In</string>
+    <string name="button_register">Create an Account</string>
 
     <string name="textinput_userid">User ID</string>
     <string name="textinput_password">Password</string>
