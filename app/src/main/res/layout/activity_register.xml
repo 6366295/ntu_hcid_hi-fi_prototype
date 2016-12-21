@@ -7,8 +7,13 @@
     tools:context="com.hcid.edulearn.asksimple.RegisterActivity">
 
     <include
-        android:id="@+id/tool_bar"
-        layout="@layout/tool_bar_register">
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar">
+    </include>
+
+    <include
+        android:id="@+id/toolbar_shadow"
+        layout="@layout/toolbar_shadow">
     </include>
 
 </RelativeLayout>
