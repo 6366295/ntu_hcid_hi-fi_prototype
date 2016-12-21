@@ -145,7 +145,8 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
-            android:textAllCaps="true"/>
+            android:textAllCaps="true"
+            android:onClick="buttonRegister"/>
 
     </RelativeLayout>
 

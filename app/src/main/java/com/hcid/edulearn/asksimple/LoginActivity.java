@@ -1,6 +1,7 @@
 package com.hcid.edulearn.asksimple;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,11 @@ public class LoginActivity extends AppCompatActivity {
         mButtonRegister = (Button) findViewById(R.id.button_register);
         mButtonRegister.setPaintFlags(mButtonRegister.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 }
+
+    public void buttonRegister(View view) {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
 
     public void splashAnimation() {
         // Load fade in animation from xml
