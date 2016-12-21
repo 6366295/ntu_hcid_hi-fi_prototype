@@ -14,8 +14,7 @@
         android:id="@+id/layout_splash"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"
-        android:background="@android:drawable/dialog_holo_light_frame">
+        android:layout_weight="4">
 
         <ImageView
             android:id="@+id/splash_logo"
@@ -23,14 +22,22 @@
             android:layout_height="80dp"
             app:srcCompat="@drawable/logo"
             android:layout_centerHorizontal="true"
-            android:layout_above="@+id/splash_title" />
+            android:layout_above="@+id/splash_space" />
+
+        <Space
+            android:id="@+id/splash_space"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
 
         <LinearLayout
             android:id="@+id/splash_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" >
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/splash_space">
 
             <TextView
                 android:text="Ask"
@@ -67,6 +74,13 @@
         </LinearLayout>
 
     </RelativeLayout>
+
+    <View
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@drawable/shadow">
+    </View>
 
     <RelativeLayout
         android:layout_width="match_parent"
