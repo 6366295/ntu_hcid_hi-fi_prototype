@@ -34,6 +34,11 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void buttonLogin(View view) {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
     public void splashAnimation() {
         // Load fade in animation from xml
         fadeInAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
