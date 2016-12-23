@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void buttonLogin(View view) {
-        Intent intent = new Intent(this, RegisterActivity.class);
+        Intent intent = new Intent(this, AddCourseActivity.class);
         startActivity(intent);
     }
 

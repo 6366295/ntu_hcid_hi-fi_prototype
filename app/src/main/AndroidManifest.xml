@@ -19,8 +19,8 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:label="Registration">
-        </activity>
+            android:label="Registration"></activity>
+        <activity android:name=".AddCourseActivity"></activity>
     </application>
 
 </manifest>
