@@ -1,5 +1,6 @@
 package com.hcid.edulearn.asksimple;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,23 +18,14 @@ public class CoursesActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
         // Disable custom toolbar shadow if API >= 21
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             findViewById(R.id.toolbar_shadow).setVisibility(View.GONE);
         }
     }
 
-    // Source: http://stackoverflow.com/questions/26651602/display-back-arrow-on-toolbar-android
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // handle arrow click here
-        if (item.getItemId() == android.R.id.home) {
-            finish(); // close this activity and return to preview activity (if there is any)
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void buttonAdd(View view) {
+        Intent intent = new Intent(this, AddCourseActivity.class);
+        startActivity(intent);
     }
 }
