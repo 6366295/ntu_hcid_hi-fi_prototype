@@ -68,7 +68,8 @@
             android:layout_marginStart="16dp"
             android:layout_weight="1">
 
-            <LinearLayout
+            <RadioGroup
+                android:id="@+id/radio_register"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="16dp"
@@ -88,9 +89,11 @@
                         android:layout_height="wrap_content"
                         android:text="@string/student" />
 
-                    <android.support.v7.widget.AppCompatRadioButton
+                    <RadioButton
+                        android:id="@+id/radio_student"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:checked="true"/>
 
                 </LinearLayout>
 
@@ -106,7 +109,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/teacher" />
 
-                    <android.support.v7.widget.AppCompatRadioButton
+                    <RadioButton
+                        android:id="@+id/radio_teacher"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -124,13 +128,14 @@
                         android:layout_height="wrap_content"
                         android:text="@string/teaching_assistant" />
 
-                    <android.support.v7.widget.AppCompatRadioButton
+                    <RadioButton
+                        android:id="@+id/radio_ta"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </RadioGroup>
 
         </RelativeLayout>
 

@@ -6,8 +6,12 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class RegisterActivity extends AppCompatActivity {
+
+    RadioButton radioStudent, radioTeacher, radioTA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,35 @@ public class RegisterActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             findViewById(R.id.toolbar_shadow).setVisibility(View.GONE);
         }
+
+        radioStudent = (RadioButton) findViewById(R.id.radio_student);
+        radioTeacher = (RadioButton) findViewById(R.id.radio_teacher);
+        radioTA = (RadioButton) findViewById(R.id.radio_ta);
+
+        radioStudent.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                radioStudent.setChecked(true);
+                radioTeacher.setChecked(false);
+                radioTA.setChecked(false);
+            }
+        });
+
+        radioTeacher.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                radioStudent.setChecked(false);
+                radioTeacher.setChecked(true);
+                radioTA.setChecked(false);
+            }
+        });
+
+        radioTA.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                radioStudent.setChecked(false);
+                radioTeacher.setChecked(false);
+                radioTA.setChecked(true);
+            }
+        });
+
     }
 
     // Source: http://stackoverflow.com/questions/26651602/display-back-arrow-on-toolbar-android
