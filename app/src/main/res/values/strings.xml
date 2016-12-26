@@ -18,4 +18,5 @@
     <string name="student">Student</string>
     <string name="teacher">Teacher</string>
     <string name="teaching_assistant">Teaching Assistant</string>
+    <string name="title_activity_course">CourseActivity</string>
 </resources>
