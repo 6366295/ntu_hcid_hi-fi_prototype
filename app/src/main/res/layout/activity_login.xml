@@ -92,11 +92,12 @@
         android:gravity="center_vertical">
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/user_id"
+            android:id="@+id/widget_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
+                android:id="@+id/user_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/user_id"
@@ -105,12 +106,12 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/text_input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/user_id">
+            android:layout_below="@+id/widget_text">
 
             <EditText
+                android:id="@+id/text_input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"

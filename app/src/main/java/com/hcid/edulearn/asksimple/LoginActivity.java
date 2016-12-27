@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.BounceInterpolator;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -17,16 +20,27 @@ public class LoginActivity extends AppCompatActivity {
     Button mButtonRegister;
     Animation fadeInAnimation;
 
+    EditText UserID;
+    EditText Password;
+
+    DatabaseHandler db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        UserID = (EditText) findViewById(R.id.user_id);
+        Password = (EditText) findViewById(R.id.text_input_password);
         mSplashView = findViewById(R.id.layout_splash);
         splashAnimation();
 
         mButtonRegister = (Button) findViewById(R.id.button_register);
         mButtonRegister.setPaintFlags(mButtonRegister.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+        db = new DatabaseHandler(this);
+
+        db.addUser(new User("student", "student", "student", "student"));
 }
 
     public void buttonRegister(View view) {
@@ -35,6 +49,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void buttonLogin(View view) {
+        String user_id = UserID.getText().toString();
+
+        User user = db.getUser(user_id);
+
+        Log.d("Read: ", user_id);
+//        Log.d("Read: ", user.getName());
+
         Intent intent = new Intent(this, CoursesActivity.class);
         startActivity(intent);
         finish();
