@@ -38,6 +38,7 @@
             android:layout_height="wrap_content">
 
             <EditText
+                android:id="@+id/user_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/user_id"
@@ -52,6 +53,7 @@
             android:layout_below="@+id/text_input_userid">
 
             <EditText
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
@@ -150,6 +152,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
@@ -164,6 +167,7 @@
                 android:layout_below="@+id/text_input_password">
 
                 <EditText
+                    android:id="@+id/confirm_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/confirm_password"
@@ -188,7 +192,8 @@
                 android:layout_centerVertical="true"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:textStyle="bold"
-                android:textAllCaps="true" />
+                android:textAllCaps="true"
+                android:onClick="buttonRegister"/>
 
         </RelativeLayout>
 
