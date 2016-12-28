@@ -79,10 +79,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         User user;
 
-        if (cursor == null) {
+        try {
             user = new User(Integer.parseInt(cursor.getString(0)),
                     cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
-        } else {
+        } catch (Exception e) {
             user = new User();
         }
 

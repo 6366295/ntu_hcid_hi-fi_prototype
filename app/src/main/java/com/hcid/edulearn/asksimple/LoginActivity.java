@@ -1,6 +1,7 @@
 package com.hcid.edulearn.asksimple;
 
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.view.animation.BounceInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -33,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         UserID = (EditText) findViewById(R.id.user_id);
         Password = (EditText) findViewById(R.id.text_input_password);
         mSplashView = findViewById(R.id.layout_splash);
+
         splashAnimation();
 
         mButtonRegister = (Button) findViewById(R.id.button_register);
@@ -41,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
         db = new DatabaseHandler(this);
 
         db.addUser(new User("student", "student", "student", "student"));
+        db.addUser(new User("teacher", "teacher", "teacher", "teacher"));
+        db.addUser(new User("ta", "ta", "ta", "ta"));
 }
 
     public void buttonRegister(View view) {
@@ -50,15 +55,41 @@ public class LoginActivity extends AppCompatActivity {
 
     public void buttonLogin(View view) {
         String user_id = UserID.getText().toString();
+        String password = Password.getText().toString();
 
         User user = db.getUser(user_id);
 
         Log.d("Read: ", user_id);
-//        Log.d("Read: ", user.getName());
 
-        Intent intent = new Intent(this, CoursesActivity.class);
-        startActivity(intent);
-        finish();
+        try {
+            Log.d("Read: ", user.getUserID());
+
+            if(password.equals(user.getPassword())) {
+                Context context = getApplicationContext();
+                CharSequence text = "Welcome " + user.getName();
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast.makeText(context, text, duration).show();
+
+                Intent intent = new Intent(this, CoursesActivity.class);
+                startActivity(intent);
+                finish();
+            } else {
+                Context context = getApplicationContext();
+                CharSequence text = "Password incorrect!";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast.makeText(context, text, duration).show();
+            }
+        } catch (NullPointerException e) {
+            Context context = getApplicationContext();
+            CharSequence text = "User ID does not exist!";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast.makeText(context, text, duration).show();
+        }
+
+
     }
 
     public void splashAnimation() {
