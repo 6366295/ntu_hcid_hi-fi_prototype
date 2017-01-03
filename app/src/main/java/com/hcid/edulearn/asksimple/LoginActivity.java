@@ -15,6 +15,7 @@ public class LoginActivity extends AppCompatActivity {
 
     View mSplashView;
     Button mButtonRegister;
+    Button mButtonLogin;
     Animation fadeInAnimation;
 
     @Override
@@ -26,9 +27,20 @@ public class LoginActivity extends AppCompatActivity {
         splashAnimation();
 
         mButtonRegister = (Button) findViewById(R.id.button_register);
+        mButtonLogin = (Button) findViewById(R.id.button_login);
         mButtonRegister.setPaintFlags(mButtonRegister.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-}
 
+        mButtonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buttonLogin(view);
+            }
+        });
+}
+    public void buttonLogin(View view){
+        Intent intent = new Intent(this, ScrollingActivity.class);
+        startActivity(intent);
+    }
     public void buttonRegister(View view) {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
