@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         db.addUser(new User("student", "student", "student", "student"));
         db.addUser(new User("teacher", "teacher", "teacher", "teacher"));
         db.addUser(new User("ta", "ta", "ta", "ta"));
-}
+    }
 
     public void buttonRegister(View view) {
         Intent intent = new Intent(this, RegisterActivity.class);

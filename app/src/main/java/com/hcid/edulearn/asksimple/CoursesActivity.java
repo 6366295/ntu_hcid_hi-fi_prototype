@@ -28,4 +28,9 @@ public class CoursesActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AddCourseActivity.class);
         startActivity(intent);
     }
+
+    public void tmp_course(View view) {
+        Intent intent = new Intent(this, SessionActivity.class);
+        startActivity(intent);
+    }
 }

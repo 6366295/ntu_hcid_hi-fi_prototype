@@ -20,7 +20,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <android.support.design.widget.FloatingActionButton
             android:layout_width="wrap_content"
@@ -36,6 +38,19 @@
             android:layout_alignParentEnd="true"
             android:id="@+id/floatingActionButton"
             android:onClick="buttonAdd"/>
+
+        <Button
+            android:text="Course 001"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="21dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="84dp"
+            android:id="@+id/button12"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:onClick="tmp_course" />
 
     </RelativeLayout>
 

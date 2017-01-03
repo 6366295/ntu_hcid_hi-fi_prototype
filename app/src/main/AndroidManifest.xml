@@ -30,6 +30,10 @@
             android:name=".CoursesActivity"
             android:label="Courses"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".SessionActivity"
+            android:label="Sessions"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
