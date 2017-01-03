@@ -33,17 +33,8 @@ public class SessionActivity extends AppCompatActivity {
         }
     }
 
-    public void buttonAdd(View view) {
-        //Intent intent = new Intent(this, AddSessionActivity.class);
-        //startActivity(intent);
-
-        //RelativeLayout item = new RelativeLayout(this);
-        //TextView text = new TextView(this);
-        //text.setText("YOLO");
-        //item.addView(text);
-
-        //LinearLayout body = (RelativeLayout) this.findViewById(R.id.sessions_body);
-        //LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        //body.addView(item);
+    public void go_to_live_session(View view) {
+        Intent intent = new Intent(this, LiveSessionActivity.class);
+        startActivity(intent);
     }
 }
