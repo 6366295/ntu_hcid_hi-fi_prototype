@@ -4,8 +4,8 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -13,7 +13,6 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.BounceInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
@@ -72,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(context, text, duration).show();
 
                 Intent intent = new Intent(this, CoursesActivity.class);
+                intent.putExtra("user_id", user.getUserID());
                 startActivity(intent);
                 finish();
             } else {
