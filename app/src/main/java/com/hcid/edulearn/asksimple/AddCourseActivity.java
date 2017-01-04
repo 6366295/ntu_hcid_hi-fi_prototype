@@ -1,5 +1,6 @@
 package com.hcid.edulearn.asksimple;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,5 +36,11 @@ public class AddCourseActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void buttonAdd(View view) {
+        Intent intent = new Intent(this, CourseAddedActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
