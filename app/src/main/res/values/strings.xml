@@ -7,6 +7,7 @@
     <string name="splash_simple">Simple</string>
 
     <string name="button_login">Log In</string>
+    <string name="button_cancel">Cancel</string>
     <string name="button_register">Register</string>
     <string name="button_create">Create an Account</string>
 

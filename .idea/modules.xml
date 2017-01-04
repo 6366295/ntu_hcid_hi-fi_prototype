@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AskSimple.iml" filepath="$PROJECT_DIR$/AskSimple.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ntu_hcid_hi-fi_prototype.iml" filepath="$PROJECT_DIR$/ntu_hcid_hi-fi_prototype.iml" />
       <module fileurl="file://$PROJECT_DIR$/sessionactivity/sessionactivity.iml" filepath="$PROJECT_DIR$/sessionactivity/sessionactivity.iml" />
     </modules>
   </component>

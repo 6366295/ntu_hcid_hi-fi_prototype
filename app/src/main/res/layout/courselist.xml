@@ -9,6 +9,7 @@
     android:paddingBottom="5dp">
 
     <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/infoSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_below="@id/courseName"
-            android:text="Start Date"
+            android:text="startDate"
             android:textSize="15sp"
             android:layout_toEndOf="@+id/startTxt"
             android:layout_toRightOf="@+id/startTxt"

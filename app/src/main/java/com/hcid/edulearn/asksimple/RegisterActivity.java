@@ -1,12 +1,12 @@
 package com.hcid.edulearn.asksimple;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.os.Build;
-import android.os.Bundle;
-import android.content.Context;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -41,11 +41,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        // Disable custom toolbar shadow if API >= 21
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            findViewById(R.id.toolbar_shadow).setVisibility(View.GONE);
-        }
 
         radioStudent = (RadioButton) findViewById(R.id.radio_student);
         radioTeacher = (RadioButton) findViewById(R.id.radio_teacher);
@@ -130,6 +125,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         } catch (Exception e) {
+            Log.d("BLAH", e.getMessage());
             Context context = getApplicationContext();
             CharSequence text = "User ID already exists!";
             int duration = Toast.LENGTH_SHORT;
