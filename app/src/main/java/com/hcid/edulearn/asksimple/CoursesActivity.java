@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -20,7 +21,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class CoursesActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private User user;
     private ArrayList<Course> courses;
@@ -56,12 +57,21 @@ public class CoursesActivity extends AppCompatActivity
         }
 
         courses = new ArrayList<>();
-        courses.add(new Course(405, "Introduction to Human-Computer Interaction Design", "schedule", "Chu Hao-Hua", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime(), true));
-        courses.add(new Course(303, "Medical Database Systems", "schedule", "Chiang I-Jen", new GregorianCalendar(2015, Calendar.FEBRUARY, 11).getTime(), false));
+        courses.add(new Course(405, "Introduction to Human-Computer Interaction Design", "schedule", "Chu Hao-Hua", new GregorianCalendar(2017, Calendar.JANUARY, 3).getTime(), true));
+        courses.add(new Course(303, "Medical Database Systems", "schedule", "Chiang I-Jen", new GregorianCalendar(2017, Calendar.JANUARY, 6).getTime(), false));
+        courses.add(new Course(505, "Criminal Justice, Psychology and Social Sciences In A Semester", "schedule", "Mary Chia", new GregorianCalendar(2016, Calendar.DECEMBER, 28).getTime(), false));
 
         adapter = new coursesArrayAdapter(this, 0, courses);
-        ListView listView = (ListView) findViewById(R.id.courselist);
+        final ListView listView = (ListView) findViewById(R.id.courselist);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Object listItem = listView.getItemAtPosition(position);
+                Toast.makeText(CoursesActivity.this, id + " ", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -125,4 +135,5 @@ public class CoursesActivity extends AppCompatActivity
         Intent intent = new Intent(this, SessionActivity.class);
         startActivity(intent);
     }
+
 }
