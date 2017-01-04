@@ -1,9 +1,8 @@
 package com.hcid.edulearn.asksimple;
 
 import android.content.Intent;
-import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,10 +20,6 @@ public class AddCourseActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        // Disable custom toolbar shadow if API >= 21
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            findViewById(R.id.toolbar_shadow).setVisibility(View.GONE);
-        }
     }
 
     // Source: http://stackoverflow.com/questions/26651602/display-back-arrow-on-toolbar-android

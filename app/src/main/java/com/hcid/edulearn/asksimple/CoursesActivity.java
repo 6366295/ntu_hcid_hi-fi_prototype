@@ -11,12 +11,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class CoursesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 
     private User user;
+    private ArrayList<Course> courses;
+    ArrayAdapter<Course> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +55,13 @@ public class CoursesActivity extends AppCompatActivity
 
         }
 
+        courses = new ArrayList<>();
+        courses.add(new Course(405, "Introduction to Human-Computer Interaction Design", "schedule", "Chu Hao-Hua", new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime(), true));
+        courses.add(new Course(303, "Medical Database Systems", "schedule", "Chiang I-Jen", new GregorianCalendar(2015, Calendar.FEBRUARY, 11).getTime(), false));
 
-
+        adapter = new coursesArrayAdapter(this, 0, courses);
+        ListView listView = (ListView) findViewById(R.id.courselist);
+        listView.setAdapter(adapter);
     }
 
     @Override
