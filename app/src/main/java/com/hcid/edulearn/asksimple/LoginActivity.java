@@ -1,11 +1,11 @@
 package com.hcid.edulearn.asksimple;
 
+import android.support.v7.app.AppCompatActivity;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
             db.addUser(new User("teacher", "teacher", "teacher", "teacher"));
             db.addUser(new User("ta", "ta", "ta", "ta"));
         } catch (Exception e) {
-
+            Log.d("Database", "This is temporary!");
         }
     }
 
@@ -66,6 +66,10 @@ public class LoginActivity extends AppCompatActivity {
 
         try {
             Log.d("Read: ", user.getUserID());
+
+            if(user_id.length() == 0) {
+                throw new NullPointerException();
+            }
 
             if(password.equals(user.getPassword())) {
                 Context context = getApplicationContext();
