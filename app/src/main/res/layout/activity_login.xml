@@ -8,13 +8,13 @@
     android:layout_height="match_parent"
     android:weightSum="8"
     android:orientation="vertical"
-    tools:context="com.hcid.edulearn.asksimple.LoginActivity">
+    tools:context="com.hcid.edulearn.asksimple.LoginActivity" >
 
     <RelativeLayout
         android:id="@+id/layout_splash"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="4">
+        android:layout_weight="4" >
 
         <ImageView
             android:id="@+id/splash_logo"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/splash_space">
+            android:layout_below="@id/splash_space" >
 
             <TextView
                 android:text="@string/splash_ask"
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="42sp"
                 android:textStyle="bold"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorPrimary" />
 
         </LinearLayout>
 
@@ -63,14 +63,14 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/splash_title">
+            android:layout_below="@id/splash_title" >
 
             <TextView
                 android:text="@string/app_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
-                android:textStyle="italic"/>
+                android:textStyle="italic" />
 
         </LinearLayout>
 
@@ -80,7 +80,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="@drawable/shadow">
+        android:background="@drawable/shadow" >
     </View>
 
     <RelativeLayout
@@ -89,14 +89,14 @@
         android:layout_weight="2"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical" >
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/widget_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content" >
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/user_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -108,15 +108,15 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/widget_text">
+            android:layout_below="@+id/widget_text" >
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/text_input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:maxLines="1"/>
+                android:maxLines="1" />
         </android.support.design.widget.TextInputLayout>
 
     </RelativeLayout>
@@ -126,7 +126,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_marginLeft="128dp"
-        android:layout_marginRight="128dp">
+        android:layout_marginRight="128dp" >
 
         <Button
             android:id="@+id/button_login"
@@ -137,7 +137,7 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:textStyle="bold"
             android:textAllCaps="true"
-            android:onClick="buttonLogin"/>
+            android:onClick="buttonLogin" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -145,7 +145,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_marginLeft="64dp"
-        android:layout_marginRight="64dp">
+        android:layout_marginRight="64dp" >
 
         <Button
             android:id="@+id/button_register"
@@ -157,7 +157,7 @@
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             android:textAllCaps="true"
-            android:onClick="buttonRegister"/>
+            android:onClick="buttonRegister" />
 
     </RelativeLayout>
 

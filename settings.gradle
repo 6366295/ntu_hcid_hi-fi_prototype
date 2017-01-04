@@ -1,1 +1,1 @@
-include ':app', ':sessionactivity'
+include ':app'

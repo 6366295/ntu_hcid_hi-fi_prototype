@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hcid.edulearn.asksimple">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hcid.edulearn.asksimple" >
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:allowBackup="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
-        <activity
-            android:name=".CoursesActivity"
-            android:label="Courses"
-            android:screenOrientation="portrait">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/AppTheme" >
 
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/LogInTheme">
-
+            android:theme="@style/LogInTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity
             android:name=".RegisterActivity"
             android:label="Registration"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".RegisteredActivity"
-            android:label="Registered"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".CoursesActivity"
+            android:label="Courses"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".AddCourseActivity"
             android:label="Add Course"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".CourseAddedActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".SessionActivity"
             android:label="Sessions"
@@ -52,6 +52,7 @@
             android:name=".LiveSessionActivity"
             android:label="6 Jan 2017"
             android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hcid.edulearn.asksimple.RegisterActivity">
+    tools:context="com.hcid.edulearn.asksimple.RegisterActivity" >
 
     <include
-        android:id="@+id/toolbar2"
-        layout="@layout/toolbar">
+        layout="@layout/toolbar"
+        android:id="@+id/toolbar_backdrop" >
     </include>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar2"
+        android:layout_below="@id/toolbar_backdrop"
         android:weightSum="4"
         android:orientation="vertical"
         android:layout_marginTop="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginBottom="0dp">
+        android:layout_marginBottom="0dp" >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1" >
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/text_input_userid"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content" >
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/user_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,9 +46,9 @@
             android:id="@+id/text_input_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_input_userid">
+            android:layout_below="@+id/text_input_userid" >
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,7 +64,7 @@
             android:layout_height="0dp"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
-            android:layout_weight="1">
+            android:layout_weight="1" >
 
             <RadioGroup
                 android:id="@+id/radio_register"
@@ -72,14 +73,14 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:orientation="vertical"
-                android:weightSum="3">
+                android:weightSum="3" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:orientation="horizontal"
                     android:layout_weight="1"
-                    android:gravity="center">
+                    android:gravity="center" >
 
                     <TextView
                         android:layout_width="230dp"
@@ -99,7 +100,7 @@
                     android:layout_height="0dp"
                     android:orientation="horizontal"
                     android:layout_weight="1"
-                    android:gravity="center">
+                    android:gravity="center" >
 
                     <TextView
                         android:layout_width="230dp"
@@ -118,7 +119,7 @@
                     android:layout_height="0dp"
                     android:orientation="horizontal"
                     android:layout_weight="1"
-                    android:gravity="center">
+                    android:gravity="center" >
 
                     <TextView
                         android:layout_width="230dp"
@@ -139,14 +140,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1" >
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/text_input_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content" >
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -159,15 +160,15 @@
                 android:id="@+id/text_input_confirm_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/text_input_password">
+                android:layout_below="@+id/text_input_password" >
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/confirm_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/confirm_password"
                     android:inputType="textPassword"
-                    android:maxLines="1"/>
+                    android:maxLines="1" />
             </android.support.design.widget.TextInputLayout>
 
         </RelativeLayout>
@@ -175,7 +176,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1" >
 
             <Button
                 android:id="@+id/button_register"
@@ -188,7 +189,7 @@
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:textStyle="bold"
                 android:textAllCaps="true"
-                android:onClick="buttonRegister"/>
+                android:onClick="buttonRegister" />
 
         </RelativeLayout>
 

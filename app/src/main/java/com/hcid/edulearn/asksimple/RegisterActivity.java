@@ -14,38 +14,68 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
+    private Context appContext;
 
-    RadioButton radioStudent;
-    RadioButton radioTeacher;
-    RadioButton radioTA;
+    private EditText editTextName;
+    private EditText editTextUserID;
+    private EditText editTextPassword;
+    private EditText editTextConfirmPassword;
 
-    EditText Name;
-    EditText UserID;
-    EditText Password;
-    EditText ConfirmPassword;
+    private RadioButton radioStudent;
+    private RadioButton radioTeacher;
+    private RadioButton radioTA;
 
     DatabaseHandler db;
+
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        Name = (EditText) findViewById(R.id.name);
-        UserID = (EditText) findViewById(R.id.user_id);
-        Password = (EditText) findViewById(R.id.password);
-        ConfirmPassword = (EditText) findViewById(R.id.confirm_password);
+        appContext = getApplicationContext();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        editTextName = (EditText) findViewById(R.id.name);
+        editTextUserID = (EditText) findViewById(R.id.user_id);
+        editTextPassword = (EditText) findViewById(R.id.password);
+        editTextConfirmPassword = (EditText) findViewById(R.id.confirm_password);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         radioStudent = (RadioButton) findViewById(R.id.radio_student);
         radioTeacher = (RadioButton) findViewById(R.id.radio_teacher);
         radioTA = (RadioButton) findViewById(R.id.radio_ta);
 
+        // Enable back button in toolbar
+        setSupportActionBar(toolbar);
+
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+
+        setRadioButtons();
+    }
+
+    // Source: http://stackoverflow.com/questions/26651602/display-back-arrow-on-toolbar-android
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle arrow click here
+        if (item.getItemId() == android.R.id.home) {
+            finish(); // close this activity and return to preview activity (if there is any)
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void showToast(CharSequence text) {
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast.makeText(appContext, text, duration).show();
+    }
+
+    private void setRadioButtons() {
         radioStudent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 radioStudent.setChecked(true);
@@ -69,27 +99,15 @@ public class RegisterActivity extends AppCompatActivity {
                 radioTA.setChecked(true);
             }
         });
-
-        db = new DatabaseHandler(this);
     }
 
-    // Source: http://stackoverflow.com/questions/26651602/display-back-arrow-on-toolbar-android
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // handle arrow click here
-        if (item.getItemId() == android.R.id.home) {
-            finish(); // close this activity and return to preview activity (if there is any)
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    // TODO: Show thanks for registering screen, auto go back to login activity
     public void buttonRegister(View view) {
-        String name = Name.getText().toString();
-        String user_id = UserID.getText().toString();
-        String password = Password.getText().toString();
-        String confirm_password = ConfirmPassword.getText().toString();
+        db = new DatabaseHandler(this);
+
+        String name = editTextName.getText().toString();
+        String user_id = editTextUserID.getText().toString();
+        String password = editTextPassword.getText().toString();
+        String confirm_password = editTextConfirmPassword.getText().toString();
 
         // Default account type
         String type = "student";
@@ -103,34 +121,31 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         try {
-            if(name.length() < 5 || user_id.length() < 5 || password.length() < 5) {
-                Context context = getApplicationContext();
-                CharSequence text = "Name, User ID and password needs to have a minimum length of 5!";
-                int duration = Toast.LENGTH_SHORT;
+            Log.d("db.addUser", "name: " + name);
+            Log.d("db.addUser", "user_id: " + user_id);
+            Log.d("db.addUser", "password: " + password);
+            Log.d("db.addUser", "confirm_password: " + confirm_password);
+            Log.d("db.addUser", "type: " + type);
 
-                Toast.makeText(context, text, duration).show();
+            if(name.length() < 1 || user_id.length() < 1 || password.length() < 1) {
+                showToast("Name, User ID and password needs to have a minimum length of 1!");
             } else {
                 if(password.equals(confirm_password)) {
                     db.addUser(new User(name, user_id, password, type));
 
                     Intent intent = new Intent(this, RegisteredActivity.class);
+
                     startActivity(intent);
                     finish();
                 } else {
-                    Context context = getApplicationContext();
-                    CharSequence text = "Passwords do not match!";
-                    int duration = Toast.LENGTH_SHORT;
-
-                    Toast.makeText(context, text, duration).show();
+                    showToast("Passwords do not match!");
                 }
             }
+        // Check if user already exists
         } catch (Exception e) {
-            Log.d("BLAH", e.getMessage());
-            Context context = getApplicationContext();
-            CharSequence text = "User ID already exists!";
-            int duration = Toast.LENGTH_SHORT;
+            Log.d("buttonRegister", e.getMessage());
 
-            Toast.makeText(context, text, duration).show();
+            showToast("User ID already exists!");
         }
     }
 }
