@@ -13,6 +13,10 @@ import android.widget.Toast;
 import me.dm7.barcodescanner.zbar.Result;
 import me.dm7.barcodescanner.zbar.ZBarScannerView;
 
+/**
+ * Based on source: https://github.com/dm77/barcodescanner
+ */
+
 public class AddCourseActivity extends AppCompatActivity implements ZBarScannerView.ResultHandler {
 
     private ZBarScannerView mScannerView;
