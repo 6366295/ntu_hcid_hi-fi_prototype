@@ -20,12 +20,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private Context appContext;
 
-    private DatabaseHandler db;
-
     private EditText editTextUserID;
     private EditText editTextPassword;
 
     private View viewSplash;
+
+    DatabaseHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,9 @@ public class LoginActivity extends AppCompatActivity {
         appContext = getApplicationContext();
 
         viewSplash = findViewById(R.id.layout_splash);
+
         buttonRegister = (Button) findViewById(R.id.button_register);
+
         editTextUserID = (EditText) findViewById(R.id.user_id);
         editTextPassword = (EditText) findViewById(R.id.text_input_password);
 
