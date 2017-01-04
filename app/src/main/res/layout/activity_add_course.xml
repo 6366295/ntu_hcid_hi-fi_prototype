@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="Scan Course QR Code"/>
+                android:text="@string/add_course_qr"/>
 
             <FrameLayout
                 android:id="@+id/camera_preview"
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="Or"/>
+                android:text="@string/add_course_or"/>
 
             <TextView
                 android:id="@+id/add_course_text3"
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
-                android:text="Enter Course ID"/>
+                android:text="@string/add_course_enter"/>
 
         </RelativeLayout>
 
@@ -81,7 +81,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Course ID"
+                    android:hint="@string/add_course_hint"
                     android:inputType="text"
                     android:maxLines="1" />
             </android.support.design.widget.TextInputLayout>
@@ -96,7 +96,7 @@
 
             <Button
                 android:id="@+id/button_add_course"
-                android:text="Add Course"
+                android:text="@string/add_course_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"

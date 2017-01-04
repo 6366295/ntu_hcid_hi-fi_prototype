@@ -32,4 +32,11 @@
     <string name="registered_name">Scott</string>
     <string name="registered_message">You are now registered</string>
     <string name="registered_button">Log in now</string>
+
+    <!-- activity_add_course.xml -->
+    <string name="add_course_qr">Scan Course QR Code</string>
+    <string name="add_course_or">Or</string>
+    <string name="add_course_enter">Enter Course ID</string>
+    <string name="add_course_hint">Course ID</string>
+    <string name="add_course_button">Add Course</string>
 </resources>

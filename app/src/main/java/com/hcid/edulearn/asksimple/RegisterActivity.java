@@ -50,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
         // Enable back button in toolbar
         setSupportActionBar(toolbar);
 
-        if(getSupportActionBar() != null){
+        if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
