@@ -16,30 +16,38 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
+    private Button buttonRegister;
 
-    View mSplashView;
-    Button mButtonRegister;
-    Animation fadeInAnimation;
+    private Context appContext;
 
-    EditText UserID;
-    EditText Password;
+    private DatabaseHandler db;
 
-    DatabaseHandler db;
+    private EditText editTextUserID;
+    private EditText editTextPassword;
+
+    private View viewSplash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mSplashView = findViewById(R.id.layout_splash);
-        mButtonRegister = (Button) findViewById(R.id.button_register);
-        UserID = (EditText) findViewById(R.id.user_id);
-        Password = (EditText) findViewById(R.id.text_input_password);
+        appContext = getApplicationContext();
 
-        mButtonRegister.setPaintFlags(mButtonRegister.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        viewSplash = findViewById(R.id.layout_splash);
+        buttonRegister = (Button) findViewById(R.id.button_register);
+        editTextUserID = (EditText) findViewById(R.id.user_id);
+        editTextPassword = (EditText) findViewById(R.id.text_input_password);
+
+        underlineButton();
 
         splashAnimation();
 
+        createTempAppAccounts();
+    }
+
+    // Temporary testing accounts
+    private void createTempAppAccounts() {
         db = new DatabaseHandler(this);
 
         try {
@@ -47,71 +55,41 @@ public class LoginActivity extends AppCompatActivity {
             db.addUser(new User("teacher", "teacher", "teacher", "teacher"));
             db.addUser(new User("ta", "ta", "ta", "ta"));
         } catch (Exception e) {
-            Log.d("Database", "This is temporary!");
-        }
-    }
-
-    public void buttonRegister(View view) {
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
-    }
-
-    public void buttonLogin(View view) {
-        String user_id = UserID.getText().toString();
-        String password = Password.getText().toString();
-
-        User user = db.getUser(user_id);
-
-//        Log.d("Read: ", user_id);
-
-        try {
-            Log.d("Read: ", user.getUserID());
-
-            if(user_id.length() == 0) {
-                throw new NullPointerException();
-            }
-
-            if(password.equals(user.getPassword())) {
-                Context context = getApplicationContext();
-                CharSequence text = "Welcome " + user.getName();
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast.makeText(context, text, duration).show();
-
-                Intent intent = new Intent(this, CoursesActivity.class);
-                intent.putExtra("user_id", user.getUserID());
-                startActivity(intent);
-                finish();
-            } else {
-                Context context = getApplicationContext();
-                CharSequence text = "Password incorrect!";
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast.makeText(context, text, duration).show();
-            }
-        } catch (NullPointerException e) {
-            Context context = getApplicationContext();
-            CharSequence text = "User ID does not exist!";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast.makeText(context, text, duration).show();
+            Log.d("Database", "Accounts already exists");
         }
 
-
+        db.close();
     }
 
-    public void splashAnimation() {
+    private void underlineButton() {
+        buttonRegister.setPaintFlags(buttonRegister.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+    }
+
+    private void showToast(CharSequence text) {
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast.makeText(appContext, text, duration).show();
+    }
+
+    /**
+     * Source: http://stackoverflow.com/questions/11506381/anyway-to-programmatically-animate-layout-weight-property-of-linear-layout.
+     */
+    private void splashAnimation() {
         // Load fade in animation from xml
-        fadeInAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+        Animation fadeInAnimation = AnimationUtils.loadAnimation(getApplicationContext(),
+                                                                 R.anim.fade_in);
 
         // Special wrapper for layout weight change animation
-        ViewWeightAnimationWrapper animationWrapper = new ViewWeightAnimationWrapper(mSplashView);
+        ViewWeightAnimationWrapper animationWrapper = new ViewWeightAnimationWrapper(viewSplash);
 
         // Make it layout fullscreen
         animationWrapper.setWeight(8);
 
         // Animate weight change
-        ObjectAnimator anim = ObjectAnimator.ofFloat(animationWrapper, "weight", animationWrapper.getWeight(), 4);
+        ObjectAnimator anim = ObjectAnimator.ofFloat(animationWrapper,
+                                                     "weight",
+                                                     animationWrapper.getWeight(),
+                                                     4);
 
         anim.setInterpolator(new BounceInterpolator());
 
@@ -122,7 +100,44 @@ public class LoginActivity extends AppCompatActivity {
         anim.setDuration(1000);
 
         // Start animations
-        mSplashView.startAnimation(fadeInAnimation);
+        viewSplash.startAnimation(fadeInAnimation);
         anim.start();
+    }
+
+    public void buttonRegister(View view) {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    public void buttonLogin(View view) {
+        String user_id = editTextUserID.getText().toString();
+        String password = editTextPassword.getText().toString();
+
+        User user = db.getUser(user_id);
+
+        try {
+            Log.d("Read: ", user.getUserID());
+
+            // Do not allow log in when user id is empty
+            if(user_id.length() == 0) {
+                throw new NullPointerException();
+            }
+
+            // Password correct
+            if(password.equals(user.getPassword())) {
+                showToast("Welcome " + user.getName());
+
+                Intent intent = new Intent(this, CoursesActivity.class);
+                intent.putExtra("user_id", user.getUserID());
+
+                startActivity(intent);
+                finish();
+            } else {
+                showToast("Password incorrect!");
+            }
+            // User id is not found in database
+        } catch (NullPointerException e) {
+            showToast("User ID does not exist!");
+        }
     }
 }

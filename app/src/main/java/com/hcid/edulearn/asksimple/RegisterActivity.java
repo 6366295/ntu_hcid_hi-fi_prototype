@@ -103,9 +103,9 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         try {
-            if(name.length() < 5 || user_id.length() < 5 || password.length() < 5) {
+            if(name.length() < 1 || user_id.length() < 1 || password.length() < 1) {
                 Context context = getApplicationContext();
-                CharSequence text = "Name, User ID and password needs to have a minimum length of 5!";
+                CharSequence text = "Name, User ID and password needs to have a minimum length of 1!";
                 int duration = Toast.LENGTH_SHORT;
 
                 Toast.makeText(context, text, duration).show();
