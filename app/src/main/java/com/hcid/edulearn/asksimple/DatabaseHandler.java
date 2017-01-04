@@ -30,6 +30,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_PASS = "password";
     private static final String KEY_TYPE = "type";
 
+    // Courses table name
+    private static final String TABLE_COURSES = "courses";
+
+    // Courses Table Columns names
+    private static final String KEY_SCHEDULE= "schedule";
+    private static final String KEY_INSTRUCTOR = "instructor";
+    private static final String KEY_DATE = "start_date";
+    private static final String KEY_ACTIVE = "session_active";
+
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -41,6 +50,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
                 + KEY_USER + " TEXT UNIQUE," + KEY_PASS + " TEXT," + KEY_TYPE + " TEXT" + ")";
         db.execSQL(CREATE_USERS_TABLE);
+
+        String CREATE_COURSES_TABLE = "CREATE TABLE " + TABLE_COURSES + "("
+                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT UNIQUE,"
+                + KEY_SCHEDULE + " TEXT," + KEY_INSTRUCTOR + " TEXT," + KEY_DATE + " REAL," + KEY_ACTIVE + " INTEGER" + ")";
+        db.execSQL(CREATE_COURSES_TABLE);
     }
 
     // Upgrading database
@@ -48,6 +62,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_COURSES);
 
         // Create tables again
         onCreate(db);
