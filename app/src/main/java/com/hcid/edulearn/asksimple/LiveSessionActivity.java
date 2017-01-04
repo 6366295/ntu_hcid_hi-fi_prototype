@@ -11,17 +11,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-public class CoursesActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
-
-    private User user;
+public class LiveSessionActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_courses);
+        setContentView(R.layout.activity_livesession);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -34,20 +33,6 @@ public class CoursesActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_courses);
-
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String user_id = extras.getString("user_id");
-            Toast.makeText(this, "Welcome " + user_id , Toast.LENGTH_SHORT).show();
-
-            // todo: need the db to retrieve user info
-//            user = db.getUser(user_id);
-//            Toast.makeText(this, "Welcome " + user.getName() , Toast.LENGTH_SHORT).show();
-
-        }
-
-
 
     }
 
@@ -90,7 +75,8 @@ public class CoursesActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_courses) {
-
+            Intent intent = new Intent(this, CoursesActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_settings) {
 
         } else if (id == R.id.nav_logout) {
@@ -103,13 +89,59 @@ public class CoursesActivity extends AppCompatActivity
         return true;
     }
 
-    public void buttonAdd(View view) {
-        Intent intent = new Intent(this, AddCourseActivity.class);
-        startActivity(intent);
+    public void ask_question(View view) {
+
     }
 
-    public void tmp_course(View view) {
-        Intent intent = new Intent(this, SessionActivity.class);
-        startActivity(intent);
+    public void go_to_the_question(View view) {
+
+    }
+
+    public void click_1(View view) {
+        TextView tv = (TextView) findViewById(R.id.textView1);
+        ImageView iv = (ImageView) findViewById(R.id.imageView1);
+        if(tv.getText() == "29"){
+            iv.setImageResource(R.drawable.like);
+            tv.setText("30");
+        }else{
+            iv.setImageResource(R.drawable.not_like);
+            tv.setText("29");
+        }
+    }
+
+    public void click_2(View view) {
+        TextView tv = (TextView) findViewById(R.id.textView2);
+        ImageView iv = (ImageView) findViewById(R.id.imageView2);
+        if(tv.getText() == "3"){
+            iv.setImageResource(R.drawable.like);
+            tv.setText("4");
+        }else{
+            iv.setImageResource(R.drawable.not_like);
+            tv.setText("3");
+        }
+    }
+
+    public void click_3(View view) {
+        TextView tv = (TextView) findViewById(R.id.textView3);
+        ImageView iv = (ImageView) findViewById(R.id.imageView3);
+        if(tv.getText() == "16"){
+            iv.setImageResource(R.drawable.like);
+            tv.setText("17");
+        }else{
+            iv.setImageResource(R.drawable.not_like);
+            tv.setText("16");
+        }
+    }
+
+    public void click_4(View view) {
+        TextView tv = (TextView) findViewById(R.id.textView4);
+        ImageView iv = (ImageView) findViewById(R.id.imageView4);
+        if(tv.getText() == "0"){
+            iv.setImageResource(R.drawable.like);
+            tv.setText("1");
+        }else{
+            iv.setImageResource(R.drawable.not_like);
+            tv.setText("0");
+        }
     }
 }

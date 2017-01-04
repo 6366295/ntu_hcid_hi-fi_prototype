@@ -4,8 +4,8 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         db.addUser(new User("student", "student", "student", "student"));
         db.addUser(new User("teacher", "teacher", "teacher", "teacher"));
         db.addUser(new User("ta", "ta", "ta", "ta"));
-}
+    }
 
     public void buttonRegister(View view) {
         Intent intent = new Intent(this, RegisterActivity.class);
@@ -71,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(context, text, duration).show();
 
                 Intent intent = new Intent(this, CoursesActivity.class);
+                intent.putExtra("user_id", user.getUserID());
                 startActivity(intent);
                 finish();
             } else {

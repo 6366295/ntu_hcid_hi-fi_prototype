@@ -11,17 +11,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-public class CoursesActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
-
-    private User user;
+public class SessionActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_courses);
+        setContentView(R.layout.activity_sessions);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -34,19 +31,6 @@ public class CoursesActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_courses);
-
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String user_id = extras.getString("user_id");
-            Toast.makeText(this, "Welcome " + user_id , Toast.LENGTH_SHORT).show();
-
-            // todo: need the db to retrieve user info
-//            user = db.getUser(user_id);
-//            Toast.makeText(this, "Welcome " + user.getName() , Toast.LENGTH_SHORT).show();
-
-        }
-
 
 
     }
@@ -90,7 +74,8 @@ public class CoursesActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_courses) {
-
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_settings) {
 
         } else if (id == R.id.nav_logout) {
@@ -103,13 +88,8 @@ public class CoursesActivity extends AppCompatActivity
         return true;
     }
 
-    public void buttonAdd(View view) {
-        Intent intent = new Intent(this, AddCourseActivity.class);
-        startActivity(intent);
-    }
-
-    public void tmp_course(View view) {
-        Intent intent = new Intent(this, SessionActivity.class);
+    public void go_to_live_session(View view) {
+        Intent intent = new Intent(this, LiveSessionActivity.class);
         startActivity(intent);
     }
 }

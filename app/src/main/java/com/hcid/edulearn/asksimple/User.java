@@ -1,11 +1,5 @@
 package com.hcid.edulearn.asksimple;
 
-/**
- * User class
- *
- * Created by mike on 12/27/16.
- */
-
 public class User {
 
     int id;
