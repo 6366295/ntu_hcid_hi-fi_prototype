@@ -75,7 +75,8 @@ public class LiveSessionActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_courses) {
-            // Handle the camera action
+            Intent intent = new Intent(this, CoursesActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_settings) {
 
         } else if (id == R.id.nav_logout) {

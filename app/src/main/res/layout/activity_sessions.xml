@@ -8,18 +8,23 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <include
-        layout="@layout/activity_sessions_appbar"
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/slidingmenu_navheader"
-        app:menu="@menu/slidingmenu_drawer" />
+        tools:context="com.hcid.edulearn.asksimple.SessionActivity">
+
+        <include layout="@layout/toolbar" />
+
+        <include layout="@layout/activity_sessions_content" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+    <include
+        layout="@layout/slidingmenu_master" />
+
 
 </android.support.v4.widget.DrawerLayout>

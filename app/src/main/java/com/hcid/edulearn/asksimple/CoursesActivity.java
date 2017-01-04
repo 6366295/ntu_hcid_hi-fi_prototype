@@ -34,6 +34,7 @@ public class CoursesActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_courses);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -89,7 +90,7 @@ public class CoursesActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_courses) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_settings) {
 
         } else if (id == R.id.nav_logout) {
