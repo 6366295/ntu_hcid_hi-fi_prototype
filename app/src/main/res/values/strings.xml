@@ -7,6 +7,7 @@
     <string name="splash_simple">Simple</string>
 
     <string name="button_login">Log In</string>
+    <string name="button_cancel">Cancel</string>
     <string name="button_register">Register</string>
     <string name="button_create">Create an Account</string>
 
@@ -19,4 +20,10 @@
     <string name="teacher">Teacher</string>
     <string name="teaching_assistant">Teaching Assistant</string>
     <string name="title_activity_course">CourseActivity</string>
+    <string name="title_activity_blahblah">blahblah</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

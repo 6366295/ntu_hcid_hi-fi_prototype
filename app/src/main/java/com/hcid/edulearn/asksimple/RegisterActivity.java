@@ -1,15 +1,16 @@
 package com.hcid.edulearn.asksimple;
 
+
 import android.content.Context;
-import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -40,11 +41,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        // Disable custom toolbar shadow if API >= 21
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            findViewById(R.id.toolbar_shadow).setVisibility(View.GONE);
-        }
 
         radioStudent = (RadioButton) findViewById(R.id.radio_student);
         radioTeacher = (RadioButton) findViewById(R.id.radio_teacher);
@@ -88,8 +84,6 @@ public class RegisterActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // TODO: add minimum name, user_id, password length check
-    // TODO: check password against confirm password
     // TODO: Show thanks for registering screen, auto go back to login activity
     public void buttonRegister(View view) {
         String name = Name.getText().toString();
@@ -109,8 +103,29 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         try {
-            db.addUser(new User(name, user_id, password, type));
+            if(name.length() < 5 || user_id.length() < 5 || password.length() < 5) {
+                Context context = getApplicationContext();
+                CharSequence text = "Name, User ID and password needs to have a minimum length of 5!";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast.makeText(context, text, duration).show();
+            } else {
+                if(password.equals(confirm_password)) {
+                    db.addUser(new User(name, user_id, password, type));
+
+                    Intent intent = new Intent(this, RegisteredActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Context context = getApplicationContext();
+                    CharSequence text = "Passwords do not match!";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast.makeText(context, text, duration).show();
+                }
+            }
         } catch (Exception e) {
+            Log.d("BLAH", e.getMessage());
             Context context = getApplicationContext();
             CharSequence text = "User ID already exists!";
             int duration = Toast.LENGTH_SHORT;
