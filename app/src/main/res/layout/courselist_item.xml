@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingTop="5dp"
     android:paddingBottom="5dp">
@@ -26,8 +26,8 @@
             android:text="Course Name"
             android:textColor="@color/colorPrimary"
             android:textSize="23sp"
-            android:layout_toLeftOf="@+id/image"
-            android:layout_toStartOf="@+id/image" />
+            android:layout_toLeftOf="@+id/infoImage"
+            android:layout_toStartOf="@+id/infoImage" />
 
         <TextView
             android:id="@+id/startTxt"
@@ -48,8 +48,8 @@
             android:textSize="15sp"
             android:layout_toEndOf="@+id/startTxt"
             android:layout_toRightOf="@+id/startTxt"
-            android:layout_toLeftOf="@+id/image"
-            android:layout_toStartOf="@+id/image" />
+            android:layout_toLeftOf="@+id/infoImage"
+            android:layout_toStartOf="@+id/infoImage" />
 
         <ImageView
             android:id="@+id/infoImage"
@@ -62,7 +62,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_info_outline"
+            app:srcCompat="@drawable/ic_info_outline"
             android:tint="@color/colorPrimary"
             />
 
