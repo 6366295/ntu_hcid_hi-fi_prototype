@@ -4,6 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ntu_hcid_hi-fi_prototype.iml" filepath="$PROJECT_DIR$/ntu_hcid_hi-fi_prototype.iml" />
+<<<<<<< HEAD
+=======
+      <module fileurl="file://$PROJECT_DIR$/sessionactivity/sessionactivity.iml" filepath="$PROJECT_DIR$/sessionactivity/sessionactivity.iml" />
+>>>>>>> refs/remotes/origin/master
     </modules>
   </component>
 </project>

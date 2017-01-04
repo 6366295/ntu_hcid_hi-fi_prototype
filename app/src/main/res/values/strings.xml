@@ -1,9 +1,31 @@
 <resources>
     <string name="app_name">AskSimple</string>
+    <string name="app_logo">AskSimple Logo</string>
+    <string name="app_value">Asking Made Simple</string>
+
+    <string name="splash_ask">Ask</string>
+    <string name="splash_simple">Simple</string>
 
     <string name="button_login">Log In</string>
-    <string name="button_register">Create an Account</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_register">Register</string>
+    <string name="button_create">Create an Account</string>
 
+    <string name="name">Name</string>
+    <string name="user_id">User ID</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+
+    <string name="student">Student</string>
+    <string name="teacher">Teacher</string>
+    <string name="teaching_assistant">Teaching Assistant</string>
+    <string name="title_activity_course">CourseActivity</string>
+    <string name="title_activity_blahblah">blahblah</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+<<<<<<< HEAD
     <string name="textinput_userid">User ID</string>
     <string name="textinput_password">Password</string>
     <string name="title_activity_register">RegisterActivity</string>
@@ -15,5 +37,7 @@
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
 
+=======
+>>>>>>> refs/remotes/origin/master
     <string name="action_settings">Settings</string>
 </resources>

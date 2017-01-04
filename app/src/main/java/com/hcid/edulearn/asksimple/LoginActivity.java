@@ -1,15 +1,19 @@
 package com.hcid.edulearn.asksimple;
 
+import android.support.v7.app.AppCompatActivity;
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.BounceInterpolator;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -18,17 +22,40 @@ public class LoginActivity extends AppCompatActivity {
     Button mButtonLogin;
     Animation fadeInAnimation;
 
+    EditText UserID;
+    EditText Password;
+
+    DatabaseHandler db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         mSplashView = findViewById(R.id.layout_splash);
-        splashAnimation();
-
         mButtonRegister = (Button) findViewById(R.id.button_register);
+<<<<<<< HEAD
         mButtonLogin = (Button) findViewById(R.id.button_login);
         mButtonRegister.setPaintFlags(mButtonRegister.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+=======
+        UserID = (EditText) findViewById(R.id.user_id);
+        Password = (EditText) findViewById(R.id.text_input_password);
+
+        mButtonRegister.setPaintFlags(mButtonRegister.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+        splashAnimation();
+
+        db = new DatabaseHandler(this);
+
+        try {
+            db.addUser(new User("student", "student", "student", "student"));
+            db.addUser(new User("teacher", "teacher", "teacher", "teacher"));
+            db.addUser(new User("ta", "ta", "ta", "ta"));
+        } catch (Exception e) {
+            Log.d("Database", "This is temporary!");
+        }
+    }
+>>>>>>> refs/remotes/origin/master
 
         mButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +73,50 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void buttonLogin(View view) {
+        String user_id = UserID.getText().toString();
+        String password = Password.getText().toString();
+
+        User user = db.getUser(user_id);
+
+//        Log.d("Read: ", user_id);
+
+        try {
+            Log.d("Read: ", user.getUserID());
+
+            if(user_id.length() == 0) {
+                throw new NullPointerException();
+            }
+
+            if(password.equals(user.getPassword())) {
+                Context context = getApplicationContext();
+                CharSequence text = "Welcome " + user.getName();
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast.makeText(context, text, duration).show();
+
+                Intent intent = new Intent(this, CoursesActivity.class);
+                intent.putExtra("user_id", user.getUserID());
+                startActivity(intent);
+                finish();
+            } else {
+                Context context = getApplicationContext();
+                CharSequence text = "Password incorrect!";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast.makeText(context, text, duration).show();
+            }
+        } catch (NullPointerException e) {
+            Context context = getApplicationContext();
+            CharSequence text = "User ID does not exist!";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast.makeText(context, text, duration).show();
+        }
+
+
+    }
+
     public void splashAnimation() {
         // Load fade in animation from xml
         fadeInAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
@@ -57,11 +128,7 @@ public class LoginActivity extends AppCompatActivity {
         animationWrapper.setWeight(8);
 
         // Animate weight change
-        ObjectAnimator anim = ObjectAnimator.ofFloat(
-                animationWrapper,
-                "weight",
-                animationWrapper.getWeight(),
-                4);
+        ObjectAnimator anim = ObjectAnimator.ofFloat(animationWrapper, "weight", animationWrapper.getWeight(), 4);
 
         anim.setInterpolator(new BounceInterpolator());
 

@@ -1,11 +1,14 @@
 package com.hcid.edulearn.asksimple;
 
+<<<<<<< HEAD
 /**
  * User class
  *
  * Created by mike on 12/27/16.
  */
 
+=======
+>>>>>>> refs/remotes/origin/master
 public class User {
 
     int id;

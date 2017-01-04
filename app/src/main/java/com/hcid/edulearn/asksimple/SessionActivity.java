@@ -1,16 +1,6 @@
 package com.hcid.edulearn.asksimple;
 
 import android.content.Intent;
-<<<<<<< HEAD
-import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
-import android.view.View;
-
-public class CoursesActivity extends AppCompatActivity {
-=======
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,28 +11,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-public class CoursesActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
-
-    private User user;
->>>>>>> refs/remotes/origin/master
+public class SessionActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_courses);
+        setContentView(R.layout.activity_sessions);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-<<<<<<< HEAD
-        // Disable custom toolbar shadow if API >= 21
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            findViewById(R.id.toolbar_shadow).setVisibility(View.GONE);
-        }
-=======
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -51,19 +31,6 @@ public class CoursesActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_courses);
-
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String user_id = extras.getString("user_id");
-            Toast.makeText(this, "Welcome " + user_id , Toast.LENGTH_SHORT).show();
-
-            // todo: need the db to retrieve user info
-//            user = db.getUser(user_id);
-//            Toast.makeText(this, "Welcome " + user.getName() , Toast.LENGTH_SHORT).show();
-
-        }
-
 
 
     }
@@ -107,7 +74,8 @@ public class CoursesActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_courses) {
-
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_settings) {
 
         } else if (id == R.id.nav_logout) {
@@ -118,19 +86,10 @@ public class CoursesActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
->>>>>>> refs/remotes/origin/master
     }
 
-    public void buttonAdd(View view) {
-        Intent intent = new Intent(this, AddCourseActivity.class);
+    public void go_to_live_session(View view) {
+        Intent intent = new Intent(this, LiveSessionActivity.class);
         startActivity(intent);
     }
-<<<<<<< HEAD
-=======
-
-    public void tmp_course(View view) {
-        Intent intent = new Intent(this, SessionActivity.class);
-        startActivity(intent);
-    }
->>>>>>> refs/remotes/origin/master
 }

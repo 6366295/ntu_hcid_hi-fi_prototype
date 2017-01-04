@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_blahblah"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.hcid.edulearn.asksimple.CoursesActivity"
+    tools:showIn="@layout/activity_livesession">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/live_session"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.hcid.edulearn.asksimple.LiveSessionActivity">
+
+        <GridLayout
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            android:id="@+id/question_list"
+            android:weightSum="1"
+            android:layout_width="320dp">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button6"
+                android:onClick="go_to_the_question"
+                android:text="Which prototype tools should I use for the medium-fi prototype? Prof. Hao recommended...&#10;&#10;(Approved)    (3 answers)" />
+
+            <Button
+                android:text="What are some examples of good open-ended questions to ask during prototype testing?&#10;&#10;(Approved)    (5 answers)"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button5" />
+
+            <Button
+                android:text="Should we continue the user testing if the responses are more or less the same?&#10;&#10;(Approved)    (1 answer)"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button4" />
+
+            <Button
+                android:text="What are the advantanges of using proto.io over invisionapp?&#10;&#10;                          (1 answer)"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button3" />
+
+        </GridLayout>
+
+        <ImageView
+            android:layout_width="50dp"
+            app:srcCompat="@drawable/not_like"
+            android:id="@+id/imageView1"
+            android:layout_height="50dp"
+            android:onClick="click_1"
+            android:layout_below="@+id/toolbar_shadow"
+            android:layout_toRightOf="@+id/question_list"
+            android:layout_toEndOf="@+id/question_list" />
+        <TextView
+            android:text="29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_below="@+id/imageView1"
+            android:layout_toRightOf="@+id/question_list"
+            android:layout_toEndOf="@+id/question_list"
+            android:layout_marginLeft="9dp"
+            android:layout_marginStart="9dp" />
+
+        <ImageView
+            android:layout_width="50dp"
+            app:srcCompat="@drawable/not_like"
+            android:id="@+id/imageView2"
+            android:layout_height="50dp"
+            android:onClick="click_2"
+            android:layout_below="@+id/textView1"
+            android:layout_toRightOf="@+id/question_list"
+            android:layout_toEndOf="@+id/question_list"
+            android:layout_marginTop="30dp" />
+        <TextView
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_below="@+id/imageView2"
+            android:layout_alignEnd="@+id/textView1"
+            android:layout_alignRight="@+id/textView1" />
+
+        <ImageView
+            android:layout_width="50dp"
+            app:srcCompat="@drawable/like"
+            android:id="@+id/imageView3"
+            android:layout_height="50dp"
+            android:onClick="click_3"
+            android:layout_below="@+id/textView2"
+            android:layout_toRightOf="@+id/question_list"
+            android:layout_toEndOf="@+id/question_list"
+            android:layout_marginTop="30dp" />
+        <TextView
+            android:text="16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_below="@+id/imageView3"
+            android:layout_alignEnd="@+id/textView1"
+            android:layout_alignRight="@+id/textView1" />
+
+        <ImageView
+            android:layout_width="50dp"
+            app:srcCompat="@drawable/not_like"
+            android:id="@+id/imageView4"
+            android:layout_height="50dp"
+            android:onClick="click_4"
+            android:layout_below="@+id/textView3"
+            android:layout_toRightOf="@+id/question_list"
+            android:layout_toEndOf="@+id/question_list"
+            android:layout_marginTop="30dp" />
+        <TextView
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_below="@+id/imageView4"
+            android:layout_alignEnd="@+id/textView1"
+            android:layout_alignRight="@+id/textView1" />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
