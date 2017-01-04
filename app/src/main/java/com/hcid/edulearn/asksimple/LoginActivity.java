@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.BounceInterpolator;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     private View viewSplash;
 
     DatabaseHandler db;
+
+    InputMethodManager iMM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +74,13 @@ public class LoginActivity extends AppCompatActivity {
         int duration = Toast.LENGTH_SHORT;
 
         Toast.makeText(appContext, text, duration).show();
+    }
+
+    private void focusOnEditText(EditText editText) {
+        editText.requestFocus();
+
+        iMM = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        iMM.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
     }
 
     /**
@@ -136,10 +146,16 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             } else {
                 showToast("Password incorrect!");
+
+                focusOnEditText(editTextPassword);
             }
             // User id is not found in database
         } catch (NullPointerException e) {
             showToast("User ID does not exist!");
+
+            focusOnEditText(editTextUserID);
         }
+
+        db.close();
     }
 }

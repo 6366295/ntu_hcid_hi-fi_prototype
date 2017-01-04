@@ -104,4 +104,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return contact
         return user;
     }
+
+    void addCourse(Course course) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, course.getName());
+        values.put(KEY_SCHEDULE, course.getSchedule());
+        values.put(KEY_INSTRUCTOR, course.getInstructor());
+//        values.put(KEY_DATE, course.getStartDate());
+        values.put(KEY_ACTIVE, course.getSessionActive());
+
+
+        // Inserting Row
+        db.insertOrThrow(TABLE_COURSES, null, values);
+        db.close(); // Closing database connection
+    }
 }
