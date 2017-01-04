@@ -26,4 +26,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- activity_registered.xml -->
+    <string name="registered_welcome">Welcome</string>
+    <string name="registered_name">Scott</string>
+    <string name="registered_message">You are now registered</string>
+    <string name="registered_button">Log in now</string>
 </resources>

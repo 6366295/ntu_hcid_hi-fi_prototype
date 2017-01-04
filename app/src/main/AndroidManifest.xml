@@ -13,7 +13,7 @@
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/LogInTheme">
+            android:theme="@style/LogInTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -27,7 +27,6 @@
 
         <activity
             android:name=".RegisteredActivity"
-            android:label="Registered"
             android:screenOrientation="portrait" />
 
         <activity
