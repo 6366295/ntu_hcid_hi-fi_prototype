@@ -5,6 +5,7 @@
     android:id="@+id/live_session"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context="com.hcid.edulearn.asksimple.LiveSessionActivity">
 
     <include
@@ -32,120 +33,115 @@
         android:id="@+id/floatingActionButton"
         android:onClick="ask_question"/>
 
-    <GridLayout
-        android:orientation="vertical"
-        android:layout_height="match_parent"
+    <ImageView
+        app:srcCompat="@drawable/live_aa"
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
-        android:id="@+id/question_list"
-        android:weightSum="1"
-        android:layout_width="320dp">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button6"
-            android:onClick="go_to_the_question"
-            android:text="Which prototype tools should I use for the medium-fi prototype? Prof. Hao recommended...&#10;&#10;(Approved)    (3 answers)" />
-
-        <Button
-            android:text="What are some examples of good open-ended questions to ask during prototype testing?&#10;&#10;(Approved)    (5 answers)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button5" />
-
-        <Button
-            android:text="Should we continue the user testing if the responses are more or less the same?&#10;&#10;(Approved)    (1 answer)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button4" />
-
-        <Button
-            android:text="What are the advantanges of using proto.io over invisionapp?&#10;&#10;                          (1 answer)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button3" />
-
-    </GridLayout>
+        android:layout_toLeftOf="@+id/floatingActionButton"
+        android:layout_toStartOf="@+id/floatingActionButton" />
 
     <ImageView
-        android:layout_width="50dp"
-        app:srcCompat="@drawable/not_like"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/like_aa"
         android:id="@+id/imageView1"
-        android:layout_height="50dp"
-        android:onClick="click_1"
         android:layout_below="@+id/toolbar_shadow"
-        android:layout_toRightOf="@+id/question_list"
-        android:layout_toEndOf="@+id/question_list" />
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_marginTop="40dp"
+        android:onClick="click_1" />
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/like_ab"
+        android:id="@+id/imageView2"
+        android:layout_below="@+id/toolbar_shadow"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_marginTop="170dp"
+        android:onClick="click_2" />
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/like_aa"
+        android:id="@+id/imageView3"
+        android:layout_below="@+id/toolbar_shadow"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_marginTop="290dp"
+        android:onClick="click_3" />
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/like_aa"
+        android:id="@+id/imageView4"
+        android:layout_below="@+id/toolbar_shadow"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_marginTop="410dp"
+        android:onClick="click_4" />
+
     <TextView
         android:text="29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
         android:id="@+id/textView1"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:layout_below="@+id/imageView1"
-        android:layout_toRightOf="@+id/question_list"
-        android:layout_toEndOf="@+id/question_list"
-        android:layout_marginLeft="9dp"
-        android:layout_marginStart="9dp" />
-
-    <ImageView
-        android:layout_width="50dp"
-        app:srcCompat="@drawable/not_like"
-        android:id="@+id/imageView2"
-        android:layout_height="50dp"
-        android:onClick="click_2"
-        android:layout_below="@+id/textView1"
-        android:layout_toRightOf="@+id/question_list"
-        android:layout_toEndOf="@+id/question_list"
-        android:layout_marginTop="30dp" />
+        android:layout_alignRight="@+id/imageView1"
+        android:layout_alignEnd="@+id/imageView1"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp" />
     <TextView
-        android:text="3"
+        android:text="13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
         android:id="@+id/textView2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/holo_red_light"
         android:layout_below="@+id/imageView2"
-        android:layout_alignEnd="@+id/textView1"
-        android:layout_alignRight="@+id/textView1" />
-
-    <ImageView
-        android:layout_width="50dp"
-        app:srcCompat="@drawable/like"
-        android:id="@+id/imageView3"
-        android:layout_height="50dp"
-        android:onClick="click_3"
-        android:layout_below="@+id/textView2"
-        android:layout_toRightOf="@+id/question_list"
-        android:layout_toEndOf="@+id/question_list"
-        android:layout_marginTop="30dp" />
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignEnd="@+id/imageView2"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp" />
+    <TextView
+        android:text="10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:id="@+id/textView3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignRight="@+id/imageView3"
+        android:layout_alignEnd="@+id/imageView3"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp" />
     <TextView
         android:text="16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:layout_below="@+id/imageView3"
-        android:layout_alignEnd="@+id/textView1"
-        android:layout_alignRight="@+id/textView1" />
-
-    <ImageView
-        android:layout_width="50dp"
-        app:srcCompat="@drawable/not_like"
-        android:id="@+id/imageView4"
-        android:layout_height="50dp"
-        android:onClick="click_4"
-        android:layout_below="@+id/textView3"
-        android:layout_toRightOf="@+id/question_list"
-        android:layout_toEndOf="@+id/question_list"
-        android:layout_marginTop="30dp" />
-    <TextView
-        android:text="0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
         android:id="@+id/textView4"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:layout_below="@+id/imageView4"
-        android:layout_alignEnd="@+id/textView1"
-        android:layout_alignRight="@+id/textView1" />
+        android:layout_alignRight="@+id/imageView4"
+        android:layout_alignEnd="@+id/imageView4"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp" />
+
+    <Button
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/button8"
+        android:background="@android:color/transparent"
+        android:onClick="go_to_the_question"
+        android:layout_height="150dp"
+        android:layout_width="280dp" />
+
 
 </RelativeLayout>
