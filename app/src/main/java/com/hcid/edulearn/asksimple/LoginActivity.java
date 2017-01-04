@@ -13,7 +13,6 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.BounceInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
@@ -32,14 +31,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        mSplashView = findViewById(R.id.layout_splash);
+        mButtonRegister = (Button) findViewById(R.id.button_register);
         UserID = (EditText) findViewById(R.id.user_id);
         Password = (EditText) findViewById(R.id.text_input_password);
-        mSplashView = findViewById(R.id.layout_splash);
+
+        mButtonRegister.setPaintFlags(mButtonRegister.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         splashAnimation();
-
-        mButtonRegister = (Button) findViewById(R.id.button_register);
-        mButtonRegister.setPaintFlags(mButtonRegister.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         db = new DatabaseHandler(this);
 
@@ -59,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
 
         User user = db.getUser(user_id);
 
-        Log.d("Read: ", user_id);
+//        Log.d("Read: ", user_id);
 
         try {
             Log.d("Read: ", user.getUserID());
@@ -103,11 +102,7 @@ public class LoginActivity extends AppCompatActivity {
         animationWrapper.setWeight(8);
 
         // Animate weight change
-        ObjectAnimator anim = ObjectAnimator.ofFloat(
-                animationWrapper,
-                "weight",
-                animationWrapper.getWeight(),
-                4);
+        ObjectAnimator anim = ObjectAnimator.ofFloat(animationWrapper, "weight", animationWrapper.getWeight(), 4);
 
         anim.setInterpolator(new BounceInterpolator());
 
