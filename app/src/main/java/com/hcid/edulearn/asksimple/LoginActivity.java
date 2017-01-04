@@ -42,9 +42,13 @@ public class LoginActivity extends AppCompatActivity {
 
         db = new DatabaseHandler(this);
 
-        db.addUser(new User("student", "student", "student", "student"));
-        db.addUser(new User("teacher", "teacher", "teacher", "teacher"));
-        db.addUser(new User("ta", "ta", "ta", "ta"));
+        try {
+            db.addUser(new User("student", "student", "student", "student"));
+            db.addUser(new User("teacher", "teacher", "teacher", "teacher"));
+            db.addUser(new User("ta", "ta", "ta", "ta"));
+        } catch (Exception e) {
+
+        }
     }
 
     public void buttonRegister(View view) {
