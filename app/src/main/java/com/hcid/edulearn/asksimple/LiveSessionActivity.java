@@ -96,11 +96,13 @@ public class LiveSessionActivity extends AppCompatActivity
         if (id == R.id.nav_courses) {
             Intent intent = new Intent(this, CoursesActivity.class);
             startActivity(intent);
+            finish();
         } else if (id == R.id.nav_settings) {
 
         } else if (id == R.id.nav_logout) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
