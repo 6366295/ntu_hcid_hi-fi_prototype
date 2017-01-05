@@ -92,7 +92,8 @@ public class AnswersAdapter extends BaseAdapter {
         Random random = new Random();
         if(random.nextInt(2)==0){
             holder.mEditButton.setVisibility(View.GONE);
-            holder.mAuthorText.setText("By Aurimas");
+//            holder.mAuthorText.setText("By Aurimas");
+            holder.mAuthorText.setText("");
             holder.mAuthorText.setTextColor(view.getResources().getColor(android.R.color.darker_gray));
         }
         else{

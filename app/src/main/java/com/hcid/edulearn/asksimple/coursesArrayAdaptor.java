@@ -54,7 +54,7 @@ class coursesArrayAdapter extends ArrayAdapter<Course> {
         startDate.setText(ft.format(course.getStartDate()));
 
         if (course.getSessionActive()) {
-            active.setText("Active");
+            active.setText("Live");
             active.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.rounded_corner));
 //            active.setBackgroundColor(ContextCompat.getColor(context, R.color.colorGreen));
 //            rectBar.setBackgroundColor(ContextCompat.getColor(context, R.color.colorGreen));
