@@ -3,11 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/toolbar_backdrop" >
+    </include>
 <LinearLayout
     android:orientation="vertical" 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="@dimen/app_bar_height">
+    android:layout_below="@id/toolbar_backdrop">
     <android.support.v7.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -103,15 +107,17 @@
     </ListView>
 
 </LinearLayout>
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/QAFragment_fab"
-        android:layout_marginTop="@dimen/fab_marginTop"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginRight="@dimen/fab_margin"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_add_white_48dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|end" >
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/QAFragment_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@drawable/ic_add"
+            android:onClick="buttonAdd" />
+    </LinearLayout>
 </RelativeLayout>
