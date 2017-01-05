@@ -69,8 +69,13 @@ public class AddCourseActivity extends AppCompatActivity implements ZBarScannerV
 
     @Override
     public void handleResult(Result rawResult) {
-        Toast.makeText(this, "Contents = " + rawResult.getContents() +
-                ", Format = " + rawResult.getBarcodeFormat().getName(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Contents = " + rawResult.getContents() +
+//                ", Format = " + rawResult.getBarcodeFormat().getName(), Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, CourseAddedActivity.class);
+        startActivity(intent);
+        finish();
+
         // Note:
         // * Wait 2 seconds to resume the preview.
         // * On older devices continuously stopping and resuming camera preview can result in freezing the app.

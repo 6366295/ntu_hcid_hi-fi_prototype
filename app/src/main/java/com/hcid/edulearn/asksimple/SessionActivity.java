@@ -74,7 +74,7 @@ public class SessionActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_courses) {
-            Intent intent = new Intent(this, LoginActivity.class);
+            Intent intent = new Intent(this, CoursesActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_settings) {
 

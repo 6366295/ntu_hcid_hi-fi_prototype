@@ -48,6 +48,6 @@
     <string name="question">Question:</string>
     <string name="approved">✔ Approved</string>
     <string name="yourAnswer">Your answer</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
 </resources>
