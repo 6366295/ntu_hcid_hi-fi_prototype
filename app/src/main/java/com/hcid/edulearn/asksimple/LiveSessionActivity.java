@@ -109,11 +109,13 @@ public class LiveSessionActivity extends AppCompatActivity
     }
 
     public void ask_question(View view) {
-
+        Intent intent = new Intent(this, AskedActivity.class);
+        startActivity(intent);
     }
 
     public void go_to_the_question(View view) {
-
+        Intent intent = new Intent(this, AnsweredActivity.class);
+        startActivity(intent);
     }
 
     public void click_1(View view) {

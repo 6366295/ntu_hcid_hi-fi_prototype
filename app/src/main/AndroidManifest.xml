@@ -55,6 +55,14 @@
             android:label="6 Jan 2017"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".AskedActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".AnsweredActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>
