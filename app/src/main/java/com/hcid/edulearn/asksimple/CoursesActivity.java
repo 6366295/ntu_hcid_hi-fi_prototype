@@ -1,5 +1,6 @@
 package com.hcid.edulearn.asksimple;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -26,11 +27,14 @@ public class CoursesActivity extends AppCompatActivity
     private User user;
     private ArrayList<Course> courses;
     ArrayAdapter<Course> adapter;
+    Context appContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses);
+
+        appContext = getApplicationContext();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -69,7 +73,9 @@ public class CoursesActivity extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                Object listItem = listView.getItemAtPosition(position);
-                Toast.makeText(CoursesActivity.this, id + " ", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CoursesActivity.this, id + " ", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(appContext, SessionActivity.class);
+                startActivity(intent);
             }
         });
     }
