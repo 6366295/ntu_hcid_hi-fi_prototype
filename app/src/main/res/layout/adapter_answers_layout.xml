@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="20dp"
+    android:paddingEnd="15dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/answersAdapter_answerText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:textSize="@dimen/large_text_size"
+            android:text="I worked with proto.io and I think it's good and helpful tool."/>
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/answersAdapter_editButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_edit_black_48dp"
+            android:tint="@android:color/darker_gray"
+            android:background="@color/backgroundColor"
+            android:visibility="visible"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/answersAdapter_authorText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:textColor="@android:color/holo_green_dark"
+            android:paddingStart="5dp"
+            android:layout_weight="0.5"
+            android:textSize="@dimen/small_text_size"
+            android:text="Your answer"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/answersAdapter_publishDateText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewEnd"
+            android:textColor="@android:color/darker_gray"
+            android:paddingEnd="5dp"
+            android:layout_weight="0.5"
+            android:textSize="@dimen/small_text_size"
+            android:text="2016/12/02"/>
+    </LinearLayout>
+
+
+</LinearLayout>

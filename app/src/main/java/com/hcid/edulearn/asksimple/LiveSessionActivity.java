@@ -114,7 +114,7 @@ public class LiveSessionActivity extends AppCompatActivity
     }
 
     public void go_to_the_question(View view) {
-        Intent intent = new Intent(this, AnsweredActivity.class);
+        Intent intent = new Intent(this, ScrollingActivity.class);
         startActivity(intent);
     }
 

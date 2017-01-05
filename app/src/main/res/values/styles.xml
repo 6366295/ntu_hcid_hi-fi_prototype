@@ -40,4 +40,9 @@
         <item name="android:listPreferredItemHeightSmall">40dp</item><!-- menu item height-->
     </style>
 
+    <style name="SideLayoutStyle">
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingEnd">15dp</item>
+    </style>
+
 </resources>

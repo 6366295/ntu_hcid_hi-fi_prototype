@@ -53,7 +53,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         String CREATE_COURSES_TABLE = "CREATE TABLE " + TABLE_COURSES + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT UNIQUE,"
-                + KEY_SCHEDULE + " TEXT," + KEY_INSTRUCTOR + " TEXT," + KEY_DATE + " REAL," + KEY_ACTIVE + " INTEGER" + ")";
+                + KEY_SCHEDULE + " TEXT," + KEY_INSTRUCTOR + " TEXT," + KEY_DATE + " INTEGER," + KEY_ACTIVE + " INTEGER" + ")";
         db.execSQL(CREATE_COURSES_TABLE);
     }
 
