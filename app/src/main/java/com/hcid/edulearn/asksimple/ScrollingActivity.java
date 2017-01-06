@@ -1,6 +1,7 @@
 package com.hcid.edulearn.asksimple;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -50,6 +51,8 @@ public class ScrollingActivity extends AppCompatActivity {
                         AppCompatEditText editText = (AppCompatEditText) ((AlertDialog)dialogInterface).findViewById(R.id.dialog_editText);
                         Answers_list.add(editText.getText().toString());
                         dialogInterface.dismiss();
+                        Intent intent = new Intent(ScrollingActivity.this, AnsweredActivity.class);
+                        startActivity(intent);
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
