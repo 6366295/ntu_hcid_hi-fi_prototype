@@ -106,7 +106,7 @@ public class AnswersAdapter extends BaseAdapter {
         Random random = new Random();
         if(i != 2 && i < 4){
             holder.mEditButton.setVisibility(View.GONE);
-            holder.mAuthorText.setText("By someone else");
+            holder.mAuthorText.setText("");
             holder.mAuthorText.setTextColor(view.getResources().getColor(android.R.color.darker_gray));
 
         }
