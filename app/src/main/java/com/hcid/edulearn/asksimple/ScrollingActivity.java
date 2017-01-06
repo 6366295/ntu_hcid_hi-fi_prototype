@@ -1,7 +1,6 @@
 package com.hcid.edulearn.asksimple;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -28,11 +27,10 @@ public class ScrollingActivity extends AppCompatActivity {
     private TextView mAnswersCountText;
     private AnswersAdapter mAnswersAdapter;
     private FloatingActionButton mFab;
-
+    private ArrayList<String> Answers_list = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_scrolling);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -43,21 +41,15 @@ public class ScrollingActivity extends AppCompatActivity {
         mAnswersCountText = (TextView) findViewById(R.id.QAFragment_answersCountText);
         mFab = (FloatingActionButton) findViewById(R.id.QAFragment_fab);
 
-        mAnswersAdapter = new AnswersAdapter(getBaseContext());
-        mAnswersListView.setAdapter(mAnswersAdapter);
-
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        final Intent intent = new Intent(this, AnsweredActivity.class);
 
         builder.setTitle(getResources().getString(R.string.question))
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         AppCompatEditText editText = (AppCompatEditText) ((AlertDialog)dialogInterface).findViewById(R.id.dialog_editText);
-                        //Daryti ka reikia su text
+                        Answers_list.add(editText.getText().toString());
                         dialogInterface.dismiss();
-
-                        startActivity(intent);
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -67,8 +59,6 @@ public class ScrollingActivity extends AppCompatActivity {
                     }
                 })
                 .setView(R.layout.dialog_enter_text_layout);
-
-        final AlertDialog alertDialog = builder.create();
 
         mThumbUpIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,8 +73,9 @@ public class ScrollingActivity extends AppCompatActivity {
                 number +=1;
                 mThumbUpText.setText("" + number);
                 mThumbUpIcon.setColorFilter(getResources().getColor(android.R.color.darker_gray));
-                //Prideti skaiciaus reagavima, i realiu duomenis, taip pat invertavima pagal isorini faktoriu
-                alertDialog.show();                //Cia siaip sau sitoje vietoje padariau kad iskviestu klausimo pridejima
+                mThumbUpIcon.setClickable(false);
+                //Prideti skaiciaus reagavima, i realius duomenis, taip pat invertavima pagal
+                // isorini faktoriu
             }
         });
 
@@ -96,44 +87,28 @@ public class ScrollingActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
-
-        setSupportActionBar(toolbar);
-
-        if(getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
+        mAnswersAdapter = new AnswersAdapter(getBaseContext(), Answers_list);
+        mAnswersListView.setAdapter(mAnswersAdapter);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_scrolling, menu);
-//        return true;
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_scrolling, menu);
+        return true;
+    }
 
-    // Source: http://stackoverflow.com/questions/26651602/display-back-arrow-on-toolbar-android
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // handle arrow click here
-        if (item.getItemId() == android.R.id.home) {
-            finish(); // close this activity and return to preview activity (if there is any)
-        }
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 }

@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.hcid.edulearn.asksimple.R;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import butterknife.ButterKnife;
@@ -24,14 +25,24 @@ import butterknife.ButterKnife;
 
 public class AnswersAdapter extends BaseAdapter {
     private Context context;
+    private ArrayList<String> Answers_list;
 
-    public AnswersAdapter(Context context) {
-        this.context=context;
+    public AnswersAdapter(Context context, ArrayList<String> arrayList) {
+        this.context = context;
+        this.Answers_list = arrayList;
+        if (Answers_list.isEmpty())
+        {
+            Answers_list.add("I worked with proto.io and I think it's a helpful tool.");
+            Answers_list.add("I think it's simple enough to use.");
+            Answers_list.add("Posting this just to test out the app :) And it works pretty " +
+                    "well" +
+                    ".");
+            Answers_list.add("Not helpful at all. Might use MS Paint.");
+        }
     }
-
     @Override
     public int getCount() {
-        return 3;
+        return Answers_list.size();
     }
 
     @Override
@@ -46,6 +57,7 @@ public class AnswersAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+        final int i_copy = i;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final ViewHolder holder;
         if(view != null){
@@ -56,6 +68,7 @@ public class AnswersAdapter extends BaseAdapter {
             holder = new ViewHolder(view);
             view.setTag(holder);
         }
+        holder.mAnswersText.setText(Answers_list.get(i));
         final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
 
         builder.setTitle(view.getResources().getString(R.string.yourAnswer))
@@ -65,6 +78,7 @@ public class AnswersAdapter extends BaseAdapter {
                         AppCompatEditText editText = (AppCompatEditText) ((AlertDialog)dialogInterface).findViewById(R.id.dialog_editText);
                         //Daryti ka reikia su text
                         if(editText.getText()!=null) {
+                            Answers_list.set(i_copy, editText.getText().toString());
                             holder.mAnswersText.setText(editText.getText());
                         }
                         dialogInterface.dismiss();
@@ -90,11 +104,11 @@ public class AnswersAdapter extends BaseAdapter {
 
         //Random keisti į duomenų paėmimą ir sprendimą ka rodyti ir kada.
         Random random = new Random();
-        if(random.nextInt(2)==0){
+        if(i != 2 && i < 4){
             holder.mEditButton.setVisibility(View.GONE);
-//            holder.mAuthorText.setText("By Aurimas");
-            holder.mAuthorText.setText("");
+            holder.mAuthorText.setText("By someone else");
             holder.mAuthorText.setTextColor(view.getResources().getColor(android.R.color.darker_gray));
+
         }
         else{
             holder.mEditButton.setVisibility(View.VISIBLE);
