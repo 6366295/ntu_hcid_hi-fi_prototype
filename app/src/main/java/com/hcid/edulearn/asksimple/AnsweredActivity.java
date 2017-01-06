@@ -17,7 +17,7 @@ public class AnsweredActivity extends AppCompatActivity{
             public void run() {
                 finish();
             }
-        }, 1000);
+        }, 1300);
     }
 
 }
